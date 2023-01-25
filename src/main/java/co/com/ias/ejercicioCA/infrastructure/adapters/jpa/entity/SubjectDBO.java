@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,6 +25,14 @@ public class SubjectDBO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "studentDBO_id")
+    private List<SubjectDBO> comments = new ArrayList<>();
+
+    public SubjectDBO(Long id, String name) {
+
+    }
 
 
     public static SubjectDBO studentDBOFromDomain (Subject subject) {

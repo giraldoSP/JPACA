@@ -19,7 +19,7 @@ public class StudentUseCase {
     public StudentDTO saveStudent(StudentDTO studentDTO) {
         Student student = studentDTO.studentDTOToDomain(studentDTO);
 
-        return studentDTO.valueObjectToDTO(iStudentRepository.saveStudent(student));
+        return StudentDTO.valueObjectToDTO(iStudentRepository.saveStudent(student));
     }
 
     public List<StudentDTO> findAll() {

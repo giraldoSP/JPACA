@@ -20,7 +20,7 @@ public class SubjectUseCase {
 
         Subject subject = subjectDTO.subjectDTOToDomain(subjectDTO);
 
-        return subjectDTO.valueSubjectToDTO(iSubjectRepository.saveSubject(subject));
+        return SubjectDTO.valueSubjectToDTO(iSubjectRepository.saveSubject(subject));
     }
 
     public List<SubjectDTO> findAll() {
